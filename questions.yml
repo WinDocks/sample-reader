@@ -1,0 +1,29 @@
+categories:
+- Web App
+- Database
+- SQL Server
+questions:
+- variable: image.repository
+  default: "windocks/windocks-redis-demo-dotnetapp"
+  description: "Docker image name"
+  type: string
+  required: true
+  label: Image Name for Web App
+  group: "Web App Settings"
+- variable: image.tag
+  default: "1.0.1"
+  description: "Image tag"
+  type: string
+  required: true
+  label: Image tag
+  group: "Web App Settings"
+- variable: image.pullPolicy
+  default: "Always"
+  description: "Image pull policy"
+  type: enum
+  required: true
+  options:
+    - "Always"
+    - "IfNotPresent"
+  label: Image pull polcy
+  group: "Web App Settings"
