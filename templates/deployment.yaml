@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "windocks-sql-proxy.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}  
+  template:
+    metadata:
+      labels:
+        app: dotnetapp
+    spec:
+      containers:
+        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: dotnetapp
+          ports:
+            - containerPort: {{ .Values.webapp.port }}
+          env:
+            - name: SQLSERVER_HOST
+              value: {{ .Values.sqlserverHost }}
+            - name: SQLSERVER_SA_PASSWORD
+              value: {{ .Values.sqlserverPassword }}
