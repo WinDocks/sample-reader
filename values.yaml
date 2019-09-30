@@ -15,7 +15,7 @@ image:
 service:
   type: LoadBalancer
   port: 8000
-  targetPort: 8000
+  targetPort: 80
 
 ingress:
   enabled: false
